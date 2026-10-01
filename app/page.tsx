@@ -90,8 +90,19 @@ export default function Page() {
         </p>
       </section>
 
-      <footer className="mt-14 border-t border-encre/20 pt-6 text-sm text-encre/60">
-        <p>Relance. Mentions légales, CGV et confidentialité : bientôt ici.</p>
+           <footer className="mt-14 border-t border-encre/20 pt-6 text-sm text-encre/70">
+        <p>Relance</p>
+        <nav className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+          <a href="/mentions-legales" className="underline">
+            Mentions légales
+          </a>
+          <a href="/cgv" className="underline">
+            CGV
+          </a>
+          <a href="/confidentialite" className="underline">
+            Confidentialité
+          </a>
+        </nav>
       </footer>
 
       <div className="fixed inset-x-0 bottom-0 border-t border-encre/20 bg-papier p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:hidden">
