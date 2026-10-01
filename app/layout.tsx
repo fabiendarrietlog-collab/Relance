@@ -17,6 +17,7 @@ const texte = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://relance-psi.vercel.app"),
   title: "Relance : vos devis sans réponse se relancent tout seuls",
   description:
     "Un devis jamais relancé est un devis perdu. Relance l'écrit, l'envoie et vous prévient quand il est ouvert.",
