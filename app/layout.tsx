@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/next";
 const titre = Fraunces({
   subsets: ["latin"],
   weight: ["600", "800"],
@@ -43,7 +43,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${titre.variable} ${texte.variable}`}>
-      <body>{children}</body>
+            <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
