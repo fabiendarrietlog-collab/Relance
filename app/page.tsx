@@ -1,4 +1,5 @@
-vconst LIEN_PAIEMENT = "https://buy.stripe.com/test_9B63cxehE8nNcIK1fy6EU01";
+const LIEN_PAIEMENT = "https://buy.stripe.com/test_9B63cxehE8nNcIK1fy6EU01";
+
 const benefices = [
   {
     titre: "Trois relances écrites pour vous",
