@@ -1,4 +1,4 @@
-const LIEN_PAIEMENT = "#acheter"; // provisoire : remplacé par le lien Stripe plus tard
+const LIEN_PAIEMENT = "https://buy.stripe.com/test_aFa14p4H4avV1025vO6EU00";
 
 const benefices = [
   {
