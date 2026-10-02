@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-
+import { aAbonnementActif } from "@/lib/abonnement";
 export async function ajouterDevis(formData: FormData) {
   const supabase = await createClient();
   const {
@@ -34,7 +34,12 @@ export async function ajouterDevis(formData: FormData) {
     montant <= 0 ||
     montant > 1000000
   ) {
-    redirect("/devis/nouveau?erreur=1");
+   if (!user) {
+    redirect("/connexion");
+  }
+
+  if (!(await aAbonnementActif(supabase, user.id))) {
+    redirect("/acces");
   }
 
   const { error } = await supabase.from("quotes").insert({
