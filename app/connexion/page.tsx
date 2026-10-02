@@ -5,7 +5,6 @@ import { createClient } from "@/lib/supabase/client";
 
 export default function Connexion() {
   const [email, setEmail] = useState("");
-  const [detail, setDetail] = useState("");
   const [etat, setEtat] = useState<"attente" | "envoi" | "envoye" | "erreur">(
     "attente"
   );
@@ -20,12 +19,7 @@ export default function Connexion() {
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
     });
-    if (error) {
-      setDetail(`${error.status ?? ""} ${error.message}`);
-      setEtat("erreur");
-    } else {
-      setEtat("envoye");
-    }
+    setEtat(error ? "erreur" : "envoye");
   }
 
   return (
@@ -72,14 +66,10 @@ export default function Connexion() {
             {etat === "envoi" ? "Envoi en cours..." : "Recevoir mon lien"}
           </button>
           {etat === "erreur" && (
-            <div className="mt-3">
-              <p className="text-rouille">
-                L&apos;envoi a échoué. Réessayez dans quelques minutes.
-              </p>
-              <p className="mt-2 break-words text-sm text-encre/70">
-                Détail technique (temporaire) : {detail}
-              </p>
-            </div>
+            <p className="mt-3 text-rouille">
+              L&apos;envoi a échoué. Vérifiez l&apos;adresse et réessayez dans
+              quelques minutes.
+            </p>
           )}
         </form>
       )}
