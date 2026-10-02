@@ -76,8 +76,13 @@ export default async function MesDevis() {
         Relance
       </p>
       <h1 className="mt-3 font-titre text-3xl font-extrabold">Mes devis</h1>
-      <p className="mt-1 text-sm text-encre/70">{user.email}</p>
-
+           <p className="mt-1 text-sm text-encre/70">{user.email}</p>
+      <a
+        href="/devis/nouveau"
+        className="mt-6 flex w-full items-center justify-center rounded-md bg-rouille px-6 py-4 text-lg font-semibold text-papier"
+      >
+        Ajouter un devis
+      </a>
       <section className="mt-8 border-t border-encre/20 pt-6">
         <p className="text-sm font-semibold uppercase tracking-widest text-encre/60">
           Montant en jeu
