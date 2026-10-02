@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-
+import { aAbonnementActif } from "@/lib/abonnement";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -47,8 +47,12 @@ export default async function MesDevis() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
+   if (!user) {
     redirect("/connexion");
+  }
+
+  if (!(await aAbonnementActif(supabase, user.id))) {
+    redirect("/acces");
   }
 
   const { data } = await supabase
