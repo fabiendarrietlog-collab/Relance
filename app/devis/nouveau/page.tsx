@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { aAbonnementActif } from "@/lib/abonnement";
 import { ajouterDevis } from "../actions";
 
 export const dynamic = "force-dynamic";
@@ -22,6 +23,10 @@ export default async function NouveauDevis({
 
   if (!user) {
     redirect("/connexion");
+  }
+
+  if (!(await aAbonnementActif(supabase, user.id))) {
+    redirect("/acces");
   }
 
   const { erreur } = await searchParams;
