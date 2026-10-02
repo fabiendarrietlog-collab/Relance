@@ -117,7 +117,7 @@ export default async function MesDevis() {
               montant. Relance s&apos;occupe des trois relances et vous prévient
               à l&apos;ouverture.
             </p>
-            <p className="mt-3 text-sm text-encre/70">
+                       <p className="mt-3 text-sm text-encre/70">
               L&apos;ajout d&apos;un devis arrive très bientôt sur cet écran.
             </p>
           </div>
